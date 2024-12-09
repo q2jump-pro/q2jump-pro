@@ -31,6 +31,7 @@ env:
     -Dcpp_args=-Wno-unused-but-set-variable
 
   MESON_ARGS_MACOS: >-
+    -Dbuildtype=release
     -Dicmp-errors=disabled
     -Dwayland=disabled
     -Dwindows-crash-dumps=disabled
