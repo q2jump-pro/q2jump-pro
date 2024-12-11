@@ -17,6 +17,7 @@ env:
     -Dtests=true
     -Dvariable-fps=true
     -Dwerror=true
+    -Dbuildtype=release
 
   MESON_ARGS_WIN: >-
     -Dsdl2=disabled
@@ -31,13 +32,12 @@ env:
     -Dcpp_args=-Wno-unused-but-set-variable
 
   MESON_ARGS_MACOS: >-
+    -Dpkg_config_path=/opt/homebrew/opt/openal-soft/lib/pkgconfig
     -Dicmp-errors=disabled
     -Dwayland=disabled
     -Dwindows-crash-dumps=disabled
     -Dwrap_mode=nofallback
     -Dx11=disabled
-    -Dc_args=-Wno-unused-but-set-variable
-    -Dcpp_args=-Wno-unused-but-set-variable
 
 jobs:
   windows:
