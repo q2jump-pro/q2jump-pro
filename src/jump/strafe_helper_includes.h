@@ -15,8 +15,10 @@
 
 static inline uint32_t getColor(int element_id) {
   switch (element_id) {
-  case shc_ElementId_AcceleratingAngles:
+  case shc_ElementId_AcceleratingAnglesInZone:
     return MakeColor(0, 128, 32, 96); // shi_color_accelerating
+  case shc_ElementId_AcceleratingAngles:
+      return MakeColor(128, 0, 32, 96); // shi_color_accelerating not in zone
   case shc_ElementId_OptimalAngle:
     return MakeColor(0, 255, 64, 192); // shi_color_optimal
   case shc_ElementId_CenterMarker:
