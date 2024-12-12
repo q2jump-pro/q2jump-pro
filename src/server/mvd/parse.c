@@ -127,7 +127,7 @@ static void MVD_ParseMulticast(mvd_t *mvd, multicast_t to, int extrabits)
     mvd_client_t    *client;
     client_t        *cl;
     byte            mask[VIS_MAX_BYTES];
-    const mleaf_t   *leaf1, *leaf2;
+    const mleaf_t   *leaf1 = NULL, *leaf2;
     vec3_t          org;
     bool            reliable = false;
     byte            *data;
@@ -173,7 +173,7 @@ static void MVD_ParseMulticast(mvd_t *mvd, multicast_t to, int extrabits)
         if (to) {
             VectorScale(client->ps.pmove.origin, 0.125f, org);
             leaf2 = CM_PointLeaf(&mvd->cm, org);
-            if (!CM_AreasConnected(&mvd->cm, leaf1->area, leaf2->area))
+            if (!leaf1 || !CM_AreasConnected(&mvd->cm, leaf1->area, leaf2->area))
                 continue;
             if (leaf2->cluster == -1)
                 continue;

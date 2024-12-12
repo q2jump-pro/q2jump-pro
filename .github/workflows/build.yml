@@ -36,8 +36,6 @@ env:
     -Dwindows-crash-dumps=disabled
     -Dwrap_mode=nofallback
     -Dx11=disabled
-    -Dc_args=-Wno-unused-but-set-variable
-    -Dcpp_args=-Wno-unused-but-set-variable
 
 jobs:
   windows:
