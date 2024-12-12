@@ -31,7 +31,6 @@ env:
     -Dcpp_args=-Wno-unused-but-set-variable
 
   MESON_ARGS_MACOS: >-
-    -Dpkg_config_path=/opt/homebrew/opt/openal-soft/lib/pkgconfig
     -Dicmp-errors=disabled
     -Dwayland=disabled
     -Dwindows-crash-dumps=disabled
