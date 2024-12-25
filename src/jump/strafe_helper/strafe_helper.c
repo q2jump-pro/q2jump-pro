@@ -153,10 +153,17 @@ void StrafeHelper_Draw(const struct StrafeHelperParams *params,
 		angle_width = angle_minimum - angle_maximum;
 	}
 
+    // q2jump dynamic strafe_helper
+    // Determine the element ID based on whether the current angle is in the accelerating zone
+    enum shc_ElementId accAnglesElement = 
+        (angle_current >= angle_minimum && angle_current <= angle_maximum)
+        ? shc_ElementId_AcceleratingAnglesInZone
+        : shc_ElementId_AcceleratingAngles;
+
 	shc_drawFilledRectangle(
 		angleToPixel(angle_x, params->scale, hud_width), upper_y,
 		angleDiffToPixelDiff(angle_width, params->scale, hud_width),
-		params->height, shc_ElementId_AcceleratingAngles);
+		params->height, accAnglesElement);
 	shc_drawFilledRectangle(
 		angleToPixel(angle_optimal + offset, params->scale, hud_width) - 0.5f,
 		upper_y, 2.0f, params->height, shc_ElementId_OptimalAngle);
